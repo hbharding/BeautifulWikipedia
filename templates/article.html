@@ -1,8 +1,14 @@
-<template id="articleTemplate">
-  <style></style>
-
+<script id="articleTemplate" type="text/html">
   <article>
-    <content></content>
+    <h1>{{ title }}</h1>
+    <aside id="toc">
+      {{{ tableOfContents }}}
+    </aside>
+    <aside id="info-card">
+      {{{ infoCard }}}
+    </aside>
+    <div class="content">
+      {{{ content }}}
+    </div>
   </article>
-
-</template>
+</script>

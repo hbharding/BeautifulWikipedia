@@ -4,7 +4,7 @@
 function cleanUp() {
   $('link[rel=stylesheet]').remove();
   $('style').remove();
-  $('*').removeAttr('style');
+  $('*').not('table').removeAttr('style');
 }
 
 

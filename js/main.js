@@ -1,18 +1,22 @@
 
 
-var render = function () {
+var render = function (page) {
 
-  $.get(chrome.extension.getURL('../templates/templates.html'), function(templates) {
+  $.get(chrome.extension.getURL('../templates/article.html'), function(templates) {
+
+      var ignoredContent = [
+        '.infobox.vcard',
+        '.ambox',
+        '#toc'
+      ];
 
       var template = $(templates).filter('#articleTemplate').html();
       var data = {
         title : $('#firstHeading').text(),
-        content: $('#mw-content-text').remove( ".info-card" ).remove( ".metabox" ).html(),
+        tableOfContents : $('#toc').html(),
         infoCard: $('.infobox.vcard').html(),
-        tableOfContents : $('#toc').html()
+        content: $('#mw-content-text').children().remove(ignoredContent.toString()).parent().html()
       };
-
-      console.log(data.content);
 
       $('body').html(Mustache.render(template, data));
 

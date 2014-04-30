@@ -1,5 +1,5 @@
 
-
+//maybe change the name so it's differentiated from Mustache.render()?
 var render = function (page) {
 
   $.get(chrome.extension.getURL('../templates/article.html'), function(templates) {
@@ -12,10 +12,13 @@ var render = function (page) {
 
       var template = $(templates).filter('#articleTemplate').html();
       var data = {
-        title : $('#firstHeading').text(),
+				account: $('#p-personal').html(),
+				search: $('#p-search').html(),
+				menu: $('#mw-panel').html(),
+        title: $('#firstHeading').text(),
         tableOfContents : $('#toc').html(),
         infoCard: $('.infobox.vcard').html(),
-        content: $('#mw-content-text').children().remove(ignoredContent.toString()).parent().html()
+        content: $('#mw-content-text').children().remove(ignoredContent.toString()).parent().html(),
       };
 
       $('body').html(Mustache.render(template, data));

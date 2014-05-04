@@ -4,13 +4,18 @@
   "manifest_version": 2,
   "description": "A redesign of Wikipedia",
   "web_accessible_resources": [
-    "images/*",
+    "css/*",
+    "assets/fonts/*",
+    "assets/imgs/*",
     "templates/*"
   ],
   "content_scripts": [
     {
       "matches": [
         "*://*.wikipedia.org/*"
+      ],
+      "css": [
+        "css/main.css"
       ],
       "js": [
         "bower_components/jquery/dist/jquery.js",

@@ -1,5 +1,3 @@
-// $('body').append('')
-
 
 function cleanUp() {
   $('link[rel=stylesheet]').remove();
@@ -9,5 +7,6 @@ function cleanUp() {
 
 
 $(document).ready(function (){
+  // $('body').append('<div class="page-loading"></div>');
   cleanUp();
 });

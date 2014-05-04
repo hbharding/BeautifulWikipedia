@@ -1,72 +1,43 @@
 
-//maybe change the name so it's differentiated from Mustache.render()?
-var render = function (page) {
 
-  $.get(chrome.extension.getURL('../templates/article.html'), function(templates) {
+var compilePage = function (page) {
 
-      var ignoredContent = [
-        '.infobox.vcard',
+  $.get(chrome.extension.getURL('../templates/article.html'), function(template) {
+
+      var ignore = [
+        '.infobox',
         '.ambox',
         '#toc'
-      ];
+      ].toString();
 
-      var template = $(templates).filter('#articleTemplate').html();
+      var template = $(template).filter('#articleTemplate').html();
       var data = {
 				account: $('#p-personal').html(),
 				search: $('#p-search').html(),
 				menu: $('#mw-panel').html(),
         title: $('#firstHeading').text(),
         tableOfContents : $('#toc').html(),
-        infoCard: $('.infobox.vcard').html(),
-        content: $('#mw-content-text').children().remove(ignoredContent.toString()).parent().html(),
+        infoCard: $('.infobox').html(),
+        content: $('#mw-content-text').children().remove( ignore ).parent().html(),
       };
 
       $('body').html(Mustache.render(template, data));
+      $('.content').children('p')[0].addClass('big');
 
   });
 
+  $.get(chrome.extension.getURL('../templates/menu.html'), function(template) {
+    var template = $(template).filter('#menuTemplate').html();
+    var data = {
+      logo: chrome.extension.getURL('../assets/imgs/wikipedia.png'),
+      menu: $('#mw-panel').html()
+    };
+
+    $('body').prepend(Mustache.render(template, data));
+  });
 };
 
+
 $(document).ready(function() {
-  render();
+  compilePage();
 });
-
-
-
-
-
-// function loadTemplate() {
-//   $.get(chrome.extension.getURL('../templates/article.mst'), function(template) {
-//     console.log("loading template...")
-//     // var rendered = Mustache.render(template, {'content': content});
-//     // $('body').html(rendered).removeClass();
-//   });
-//
-// }
-//
-// loadTemplate();
-// $(document).ready(function() {
-//     $('.loader').remove();
-// });
-
-
-
-
-
-// var req = new XMLHttpRequest();
-// req.open("GET", chrome.extension.getURL('template.html'), true);
-// req.onreadystatechange = function() {
-//     if (req.readyState == 4 && req.status == 200) {
-//         var image = chrome.extension.getURL('logo.jpg');
-//         console.log('Rendering Mustache.js template...');
-//         var tb = Mustache.to_html(
-//             req.responseText,
-//             {
-//                 "imageURL": image,
-//                 "num": 5
-//             }
-//         );
-//         $('body').prepend(tb);
-//     }
-// };
-// req.send(null);

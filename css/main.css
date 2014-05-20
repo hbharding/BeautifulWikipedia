@@ -4,6 +4,7 @@
   src: url("../assets/fonts/hbh.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/hbh.woff") format("woff"), url("../assets/fonts/hbh.ttf") format("truetype"), url("../assets/fonts/hbh.svg#hbh") format("svg");
   font-weight: normal;
   font-style: normal; }
+
 [data-icon]:before {
   font-family: "hbh" !important;
   content: attr(data-icon);
@@ -178,6 +179,7 @@ h4, h5, h6 {
 
 ul, ol {
   font-size: 1em;
+  list-style-type: none;
   line-height: 1.5em;
   margin: 0 auto 1.5em;
   padding-left: 3em; }
@@ -225,16 +227,26 @@ label {
   top: 0;
   left: 0;
   z-index: 10;
-  display: flex;
-  flex-direction: row;
   width: 100%;
   height: 6em;
   padding: 0 1.5em;
   background: #f6f6f6; }
+  .bw-header .bw-menu {
+    display: none;
+    margin: 0 auto;
+    width: 100%;
+    font-size: .875em; }
+    .bw-header .bw-menu .portal {
+      justify-content: center;
+      align-items: center;
+      padding-right: 1em; }
+      .bw-header .bw-menu .portal ul {
+        padding-left: 0em; }
   .bw-header .bw-wrapper {
     display: flex;
     flex-direction: row;
-    margin: 0 auto; }
+    margin: 0 auto;
+    padding-top: 1.25em; }
   .bw-header .bw-header-logo {
     display: flex;
     justify-content: center;
@@ -267,7 +279,7 @@ label {
         outline: none;
         color: #000;
         background: #fff; }
-  .bw-header .bw-menu {
+  .bw-header .bw-menu-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -276,6 +288,14 @@ label {
     padding: 0;
     font-size: 1;
     color: #c4c4c4; }
+  .bw-header .bw-donate {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6em;
+    padding-left: 1em;
+    padding: 0;
+    font-size: 1; }
 
 .bw-history {
   width: 100%;

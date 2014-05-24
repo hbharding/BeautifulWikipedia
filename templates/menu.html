@@ -1,5 +1,8 @@
 <script id="menuTemplate" type="text/html">
   <header class="bw-header">
+		<div class="bw-menu"> 
+			{{{ menu  }}}
+		</div>
     <div class="bw-wrapper">
       <div class="bw-header-logo">
         <a href="/"><img src="{{ logo }}" /></a>
@@ -7,35 +10,12 @@
       <div class="bw-search">
         <input type="text" placeholder="Search">
       </div>
-      <menu class="bw-menu">
+      <menu class="bw-menu-button">
         <span>Menu</span>
       </menu>
+			<div class="bw-donate">
+							{{{ donate }}}
+			</div>
     </div>
   </header>
-  <section class="bw-history">
-    <div class="bw-wrapper">
-      <ol>
-        <li><label>History</label></li>
-        <li><a href="#">Maginot Line</a></li>
-        <li><a href="#">World War II</a></li>
-        <li><a href="#">Cuban Revolution</a></li>
-        <li><a href="#">Tulip Mania</a></li>
-        <li><a href="#">Dog</a></li>
-        <li><a href="#">Cat</a></li>
-        <li><a href="#">Bruins</a></li>
-        <li><a href="#">Maginot Line</a></li>
-        <li><a href="#">World War II</a></li>
-        <li><a href="#">Dog</a></li>
-        <li><a href="#">Cat</a></li>
-        <li><a href="#">Bruins</a></li>
-        <li><a href="#">Maginot Line</a></li>
-        <li><a href="#">World War II</a></li>
-        <li><a href="#">Dog</a></li>
-        <li><a href="#">Cat</a></li>
-        <li><a href="#">Bruins</a></li>
-        <li><a href="#">Maginot Line</a></li>
-        <li><a href="#">World War II</a></li>
-      </ol>
-    </div>
-  </section>
 </script>

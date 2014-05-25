@@ -4,7 +4,7 @@ var compilePage = function (page) {
 	
 	//scrape all the data
       var ignore = [
-       						'.infobox',
+//       						'.infobox',
         					'.ambox',
         					'#toc'
      							 ].toString(),

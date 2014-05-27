@@ -35,7 +35,18 @@ h1, h2, h3, h4, h5, h6, p {
 h1 {
   font-size: 3em;       /* 48 */
   line-height: 1em;     /* 48 */
+  float: left;
+  width: 15em;
   margin: 1em auto .5em;
+}
+
+.hatnote {
+  width: 46em;
+  float: left;
+}
+
+caption {
+  display: none;
 }
 
 h2 {

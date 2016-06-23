@@ -1,7 +1,3 @@
-*, *:before, *:after {
-  box-sizing: border-box;
-}
-
 html {
   font-size: 16px;
 }
@@ -12,12 +8,6 @@ body {
   padding: 0;
   background-color: #fff;
 };
-
-@media all and (max-width: 72em) {
-  body {
-    // font-size: 95%;
-  }
-}
 
 p {
   font-size: 1em;       /* 16 */
